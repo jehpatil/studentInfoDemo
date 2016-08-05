@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Student Info</title>
+
+  <link rel="stylesheet" href="../static/bower_components/bootstrap/dist/css/bootstrap.css">
+ <style >
+	table {
+		border-collapse: collapse;
+		background-color: yellow;
+	}
+	th{
+		border: 1px solid black;
+		padding: 5px;		
+	}
+	td{
+		border: 1px solid black;
+		text-align: left;
+	}
+	input{
+		background-color:pink;
+	}
+ </style>
+</head>
+
+<body ng-app="myApp" ng-controller="mainController">
+	<div class="cointaner-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 column">
+					<table>
+						<thead><br>
+						Search: <input type="text" ng-model="search" placeholder="Search">
+							<tr>
+								<th>First Name <br>								<input type="text" ng-model="search.firstName" placeholder="First Name">
+ 								</th>
+								<th>Last Name <br>								<input type="text" ng-model="search.lastName" placeholder="Last Name"></th>
+								<th>Contact Number <br>								<input type="text" ng-model="search.num" placeholder="Number"></th>
+								<th>Email <br>								<input type="text" ng-model="search.email" placeholder="Email"></th>
+								<th>City <br>								<input type="text" ng-model="search.city" placeholder="City"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="student in student_list | filter:search">
+								<td>{{student.firstName}}</td>
+								<td>{{student.lastName}}</td>
+								<td>{{student.num}}</td>
+								<td>{{student.email}}</td>
+								<td>{{student.city}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>					
+	</div>
+	<script rel="stylesheet" src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+    <script rel="stylesheet" src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../static/bower_components/angular/angular.min.js"></script>
+
+	<script src="../static/js/script.js"></script>
+
+</body>
+</html>
